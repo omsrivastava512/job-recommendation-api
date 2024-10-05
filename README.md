@@ -1,5 +1,6 @@
 # Job Recommendation API
 
+
 ## Overview
 This project is an API service for recommending relevant job postings to users based on their profiles, including skills, experience, and preferences. The backend is developed using Node.js and Express, and it interacts with a MongoDB to store job postings.
 
@@ -16,11 +17,15 @@ This project is an API service for recommending relevant job postings to users b
 
 ## Setup Instructions
 
-### Prerequisites
-- Node.js
-- MongoDB
 
-### Steps
+### Deployed Here:
+```https://job-recommendation-api-production.up.railway.app/api/recommendations```
+
+**Access using postman:**
+
+![image](https://github.com/user-attachments/assets/de83625e-d332-43ef-a0cb-b66e962871e5)
+
+### Or follow these Steps
 1. Clone the repository:
 ```bash
 git clone https://github.com/your-repo/job-recommendation-api.git
@@ -47,6 +52,9 @@ http://localhost:3000/api/recommendations
 http://localhost:3000/api/recommendations?relocate=true
 http://localhost:3000/api/recommendations?dummyuser=true
 ```
+![image](https://github.com/user-attachments/assets/9bf88261-49ff-47d2-9117-97481b8f76f5)
+
+
 
 ---
 
