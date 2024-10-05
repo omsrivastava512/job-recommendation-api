@@ -1,0 +1,22 @@
+{
+  "name": "job-recommendation-api",
+  "version": "1.0.0",
+  "description": "This project is an API service for recommending relevant job postings to users based on their profiles, including skills, experience, and preferences. The backend is developed using Node.js and Express, and it interacts with a MongoDB to store job postings.",
+  "main": "job-recommendations-server.js",
+  "scripts": {
+    "start": "npx nodemon job-recommendations-server.js"
+  },
+  "keywords": [
+    "jobs"
+  ],
+  "git repository": "https://github.com/omsrivastava512/job-recommendation-api.git",
+  "author": "Om Srivastava",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.0",
+    "mongoose": "^8.7.0",
+    "node": "^20.18.0",
+    "nodemon": "^3.1.7"
+  }
+}
