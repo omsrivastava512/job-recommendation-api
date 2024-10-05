@@ -80,7 +80,6 @@ app.use((req, res) => {
   res.status(404).send(`
     <h1>404 Not Found</h1>
     <p>You seem to have lost your way. Please check the URL and try again.</p>
-    <a href="/api/recommendations">Return to Job Recommendations</a>
   `);
 });
 

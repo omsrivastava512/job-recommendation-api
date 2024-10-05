@@ -48,6 +48,8 @@ http://localhost:3000/api/recommendations?relocate=true
 http://localhost:3000/api/recommendations?dummyuser=true
 ```
 
+---
+
 ## Recommendation Algorithm
 The algorithm is based on a simple weighted scoring where each job is given a score based on the user's profile.
 
