@@ -37,8 +37,8 @@ const User = mongoose.model("User", UserSchema);
 const Job = mongoose.model("Job", JobSchema);
 /** */
 
-/** Routing */
-app.post("/api/recommendations", async (req, res) => {
+/** Request Handler */
+const sendJobRecommendations = async (req, res) => {
   try {
     const dummyUser = {
         name: "John Doe",
@@ -74,17 +74,11 @@ app.post("/api/recommendations", async (req, res) => {
         .json({ error: "An error occurred while fetching recommendations" });
     }
   }
-});
-
-app.use((req, res) => {
-  res.status(404).send(`
-    <h1>404 Not Found</h1>
-    <p>You seem to have lost your way. Please check the URL and try again.</p>
-  `);
-});
+}
+/** */
 
 /** Job Recommendation Logic */
-async function getRecommendations(userProfile, canRelocate) {
+const getRecommendations = async(userProfile, canRelocate) => {
   console.log("Finding Jobs for " + userProfile.name);
   const jobs = await Job.find();
 
@@ -106,7 +100,7 @@ async function getRecommendations(userProfile, canRelocate) {
   return scoredJobs.map((sj) => sj.job);
 }
 
-function calculateJobScore(user, job) {
+const calculateJobScore = (user, job) => {
   let score = 0;
 
   // Skills match
@@ -141,7 +135,7 @@ function calculateJobScore(user, job) {
 /** */
 
 /** Error Handling */
-function validateUserProfile(profile) {
+const validateUserProfile = (profile) => {
   const errorMessages = [];
   if (
     !profile ||
@@ -178,7 +172,6 @@ function validateUserProfile(profile) {
 
   return profile;
 }
-
 class ValidationError extends Error {
   constructor(messages) {
     super(messages);
@@ -188,6 +181,25 @@ class ValidationError extends Error {
 }
 /** */
 
+
+
+
+
+/** Routing */
+app.get("/api/recommendations", sendJobRecommendations);
+app.post("/api/recommendations", sendJobRecommendations);
+
+// Handling rest of the routes
+app.use((req, res) => {
+  res.status(404).send(`
+    <h1>404 Not Found</h1>
+    <p>You seem to have lost your way. Please check the URL and try again.</p>
+    <a href="/api/recommendations?dummyuser=true">Return to Job Recommendations</a>
+  `);
+});
+/** */
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+ 
