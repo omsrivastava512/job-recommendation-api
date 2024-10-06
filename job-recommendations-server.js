@@ -52,7 +52,7 @@ const sendJobRecommendations = async (req, res) => {
       }  ;      
     
     // const userProfile = validateUserProfile(dummyUser);
-    const userProfile =(req.query?.dummyuser == "false") ? validateUserProfile(req.body): dummyUser;
+    const userProfile =(req.query?.dummyuser == "true") ? dummyUser : validateUserProfile(req.body);
     
     const canRelocate = req.query?.relocate == "true" ?? false ; // If user willing to relocate
 
